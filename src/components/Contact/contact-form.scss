@@ -1,0 +1,97 @@
+.form {
+    max-width: 983px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-sizing: border-box;
+    border-radius: 54px;
+    .form_fields {
+        display: flex;
+        flex-direction: column;
+        padding: 86px 64px 86px 64px;
+        h2 {
+            margin-bottom: 60px;
+        }
+        .form_fields_input {
+            font-size: 24px;
+            color: #ffffff;
+            width: 604px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            outline: none;
+            margin-bottom: 135px;
+            &:focus {
+                border-color: #bc11e2;
+                box-shadow: 0px 13px 19px -9px #bc11e2;
+            }
+        }
+        .form_fields_btn {
+            max-width: 314px;
+            width: 100%;
+            // align-self: center;
+            height: 72px;
+            background: #d39c0f;
+            border-radius: 54px;
+            border: none;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+            color: #ffffff;
+            font-size: 24px;
+            &:hover {
+                background: #bd11e2;
+                cursor: pointer;
+            }
+        }
+    }
+    .form_social {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 86px;
+        a {
+            margin: 10px 0;
+            transition: all 0.3s ease-in-out;
+            img {
+                width: 70px;
+                height: 70px;
+            }
+            &:hover {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+@media all and (max-width: 768px) {
+    .form {
+        flex-direction: column-reverse;
+        align-items: center;
+        width: auto;
+        
+        .form_fields {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 55px 10px;
+            align-items: center;
+            .form_fields_input {
+                width: 280px;
+                margin-bottom: 50px;
+            }
+        }
+        .form_social {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .separate {
+                width: 100%;
+            }
+            a {
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}

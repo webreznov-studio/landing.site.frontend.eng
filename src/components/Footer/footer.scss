@@ -1,0 +1,33 @@
+.footer {
+    margin-top: 200px;
+    height: 180px;
+    border-top: 2px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .footer_social {
+        a {
+            margin: 0 15px;
+            img {
+                width: 30px;
+                height: 30px;
+                transition: all 0.3s ease-in-out;
+            }
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+    .footer_logo {
+        a img {
+            width: 150px;
+        }
+    }
+}
+@media all and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+    }
+}

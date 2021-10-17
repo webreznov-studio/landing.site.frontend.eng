@@ -1,0 +1,23 @@
+.contact {
+    display: block;
+    margin-top: 255px;
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media all and (max-width: 768px) {
+    .contact {
+        margin-top: 80px;
+        .form {
+            .form_social {
+                a {
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+            }
+        }
+    }
+}
