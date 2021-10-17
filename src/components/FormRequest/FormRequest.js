@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import qs from 'qs';
-import {ButtonStyled, ErrorTextStyled, FormRequestWrapper, InputStyled, ItemWrapper, LabelFieldStyled, SocialWrapper} from './styles';
+import {ButtonStyled, ErrorTextStyled, FormRequestWrapper, InputStyled, ItemWrapper, LabelFieldStyled, SocialWrapper, ButtonWrapper} from './styles';
 import {useForm} from 'react-hook-form';
 import {Checkbox} from './Checkbox';
 import links from '../constLinks';
@@ -9,27 +9,52 @@ import telegram from '../../images/social-icons/telegram2.png';
 import whatsapp from '../../images/social-icons/whatsapp2.png';
 import vk from '../../images/social-icons/vk2.png';
 import inst from '../../images/social-icons/inst2.png';
+import {defaultProps} from 'grommet';
 
 export const FormRequest = () => {
+    const [submitStatus, setSubmitStatus] = useState(null);
+    const defaultValues = {
+        siteType: null,
+        siteExsistUrl: null,
+        clientName: null,
+        email: null,
+        contacts: null,
+        exampleSitesUrls: null,
+        functionOfSite: null,
+        designSite: null,
+        regionAudit: null,
+        auditorsSite: null,
+    };
+
     const {
         register,
         handleSubmit,
         watch,
         setValue,
         formState: {errors},
-    } = useForm();
+        reset,
+    } = useForm(defaultValues);
 
     const onSubmit = (dataObj) => {
-        // const data = qs.stringify(dataObj);
-        console.log(qs.stringify(dataObj));
+        const data = qs.stringify(dataObj);
+        console.log(data);
 
-        // axios.post('http://localhost:8084/api/email/add', data);
-        axios({
-            method: 'POST',
-            headers: {'content-type': 'application/x-www-form-urlencoded'},
-            data: qs.stringify(dataObj),
-            url: 'http://localhost:8084/api/email/add',
-        });
+        // axios({
+        //     method: 'POST',
+        //     headers: {'content-type': 'application/x-www-form-urlencoded'},
+        //     data: qs.stringify(dataObj),
+        //     url: 'http://localhost:8084/api/email/add',
+        // });
+        axios
+            .post('https://webreznov-landing-site-request.herokuapp.com/api/email/add', data, {
+                headers: {'content-type': 'application/x-www-form-urlencoded'},
+            })
+            .then(() => {
+                setSubmitStatus('Success! We will be contact soon :)');
+                reset(defaultValues);
+                // setTimeout(() => setSubmitStatus(null), 2500);
+            })
+            .catch((err) => setSubmitStatus(`Error code ${err.response.status} :(`));
     };
 
     const handlerCheckbox = () => {
@@ -40,7 +65,7 @@ export const FormRequest = () => {
     return (
         <FormRequestWrapper>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
+
                     <ItemWrapper>
                         {errors.siteType && <ErrorTextStyled>Это поле обязательное</ErrorTextStyled>}
                         <span>Какой сайт вы хотите?</span>
@@ -125,26 +150,27 @@ export const FormRequest = () => {
                         <InputStyled placeholder='Дополнительные контакты' {...register('contacts')} />
                     </ItemWrapper>
 
-                    <ItemWrapper>
+                    <ButtonWrapper>
                         <ButtonStyled type='submit' value='Отправить' />
-                    </ItemWrapper>
-                </div>
+                        <span className='status'>{submitStatus}</span>
+                    </ButtonWrapper>
+
             </form>
-                <SocialWrapper>
-                    <a href={links.TELEGRAM} rel='noreferrer' target='_blank'>
-                        <img src={telegram} alt='telegram' />
-                    </a>
-                    <a href={links.WHATSUP} rel='noreferrer' target='_blank'>
-                        <img src={whatsapp} alt='telegram' />
-                    </a>
-                    <div className='separate'></div>
-                    <a href={links.VK} rel='noreferrer' target='_blank'>
-                        <img src={vk} alt='vk' />
-                    </a>
-                    <a href={links.INST} rel='noreferrer' target='_blank'>
-                        <img src={inst} alt='inst' />
-                    </a>
-                </SocialWrapper>
+            <SocialWrapper>
+                <a href={links.TELEGRAM} rel='noreferrer' target='_blank'>
+                    <img src={telegram} alt='telegram' />
+                </a>
+                <a href={links.WHATSUP} rel='noreferrer' target='_blank'>
+                    <img src={whatsapp} alt='telegram' />
+                </a>
+                <div className='separate'></div>
+                <a href={links.VK} rel='noreferrer' target='_blank'>
+                    <img src={vk} alt='vk' />
+                </a>
+                <a href={links.INST} rel='noreferrer' target='_blank'>
+                    <img src={inst} alt='inst' />
+                </a>
+            </SocialWrapper>
         </FormRequestWrapper>
     );
 };

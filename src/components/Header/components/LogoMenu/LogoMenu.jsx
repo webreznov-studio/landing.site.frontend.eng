@@ -11,7 +11,7 @@ export const LogoMenu = () => {
             <Link to="#">
                 <img src={logo} alt="" />
             </Link>
-            <MenuList isShow={isShow} onClose={setIsShow} />
+            {isShow && <MenuList onClose={setIsShow} />}
         </div>
     )
 }

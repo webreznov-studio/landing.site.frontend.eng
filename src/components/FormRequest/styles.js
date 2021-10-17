@@ -12,9 +12,16 @@ export const FormRequestWrapper = styled.div`
     box-sizing: border-box;
     border-radius: 54px;
     @media all and (max-width: 768px) {
-        flex-direction: column-reverse;
+        margin-top: 55px;
+        flex-direction: column;
         align-items: center;
         width: 95%;
+    }
+`;
+
+export const ItemWrapper = styled.div`
+    span {
+        display: block;
     }
 `;
 
@@ -32,7 +39,7 @@ export const InputStyled = styled.input`
         box-shadow: 0px 13px 19px -9px #bc11e2;
     }
     @media all and (max-width: 768px) {
-        width: 280px;
+        width: 100%;
         margin-bottom: 50px;
     }
 `;
@@ -54,9 +61,22 @@ export const ButtonStyled = styled.input`
     }
 `;
 
-export const ItemWrapper = styled.div`
+export const ButtonWrapper = styled(ItemWrapper)`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     span {
-        display: block;
+        max-width: 314px;
+        width: 100%;
+        color: #d39c0f;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+    @media all and (max-width: 768px) {
+        flex-direction: column-reverse;
+        span {
+            padding: 0 0 20px
+        }
     }
 `;
 
@@ -83,5 +103,9 @@ export const SocialWrapper = styled.div`
     }
     a:hover {
         transform: rotate(360deg);
+    }
+    @media all and (max-width: 768px) {
+        flex-direction: row;
+        justify-content: space-around;
     }
 `;

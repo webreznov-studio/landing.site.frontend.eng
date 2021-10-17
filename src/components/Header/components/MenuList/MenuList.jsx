@@ -2,9 +2,9 @@ import React from 'react';
 import {ListItem, MenuListStyled} from './styles';
 import {Link} from 'gatsby';
 
-export const MenuList = ({isShow, onClose}) => {
+export const MenuList = ({onClose}) => {
     return (
-        <MenuListStyled $isShow={isShow}>
+        <MenuListStyled>
             <div onClick={() => onClose(false)} style={{cursor: 'pointer'}}>X</div>
             <ListItem>
                 <li>

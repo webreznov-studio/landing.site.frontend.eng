@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MenuListStyled = styled.div`
-  display: ${props => props.$isShow ? 'block' : 'none'};
+  display: block;
   position: fixed;
   bottom: 0;
   left: 0;
