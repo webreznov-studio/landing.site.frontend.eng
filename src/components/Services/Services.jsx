@@ -25,9 +25,9 @@ const Card = (props) => {
 
             <div style={{ textAlign: 'center' }}>
                 <strong className="card_price">{props.price}</strong>
-                <p>До {props.counter} блоков</p>
+                <p>Before {props.counter} sections</p>
                 <button className="card_btn" onClick={() => clickHandler(props.title)}>
-                    Оставить заявку
+                    request
                 </button>
             </div>
         </div>
@@ -38,15 +38,20 @@ const Services = (props) => (
     <section className="services">
         <div className="container">
             <Card
-                title="Стандартный"
+                title="Standart"
                 items={[
-                    'Разработка сайта по брифу заказчика',
-                    'Анализ конкурентов заказчика',
-                    'Кликабельные почта и номер телефона',
-                    'Загрузка фавикона (мини-иконка сайта)',
-                    'Уникальный, проработанный дизайн',
+                    // 'Разработка сайта по брифу заказчика',
+                    // 'Анализ конкурентов заказчика',
+                    // 'Кликабельные почта и номер телефона',
+                    // 'Загрузка фавикона (мини-иконка сайта)',
+                    // 'Уникальный, проработанный дизайн',
+                    'Development of the Customer Brief Site',
+                    'Analysis of Customer Competitors',
+                    'Clickable Mail and Phone Number',
+                    'Useing custom Favikon (Site Mini-icon)',
+                    'Unique, Developed Design',
                 ]}
-                price="До 10 000 RUB/5-7 дней"
+                price="To 170 USD/5-7 days"
                 counter="5"
                 info={'10000rub 5-7days'}
                 setShow={props.setShow}
@@ -54,16 +59,22 @@ const Services = (props) => (
             />
 
             <Card
-                title="Оптимальный"
+                title="Optimal"
                 items={[
-                    'Разработка сайта по брифу заказчика',
-                    'Анализ конкурентов заказчика',
-                    'Кликабельные почта и номер телефона',
-                    'Загрузка фавикона (мини-иконка сайта)',
-                    'Уникальный, проработанный дизайн',
-                    'Анализ конкурентов заказчика',
+                    // 'Разработка сайта по брифу заказчика',
+                    // 'Анализ конкурентов заказчика',
+                    // 'Кликабельные почта и номер телефона',
+                    // 'Загрузка фавикона (мини-иконка сайта)',
+                    // 'Уникальный, проработанный дизайн',
+                    // 'Анализ конкурентов заказчика',
+                    'Development of the Customer Brief Site',
+                    'Analysis of Customer Competitors',
+                    'Clickable Mail and Phone Number',
+                    'Useing custom Favikon (Site Mini-icon)',
+                    'Unique, Developed Design',
+                    'Analysis of Customer Competitors',
                 ]}
-                price="До 20 000 RUB/7-14 дней"
+                price="TO 350 USD/7-14 days"
                 counter="9"
                 info={'20000rub 7-14days'}
                 setShow={props.setShow}
@@ -71,23 +82,25 @@ const Services = (props) => (
             />
 
             <Card
-                title="Премиум"
+                title="Premium"
                 items={[
-                    'Весь оптимальный тариф',
-                    `Доменное имя на 1 год в подарок
-        (покупка/настройка/подключение)`,
-                    `SLL-сертификат / безопасное подключение
-        ("зеленый замочек")`,
-                    `Подключение систем веб-аналитики: 
-        Яндекс.Метрики и Вебвизора`,
-                    'Интеграция с Bitrix24 или amoCRM',
-                    'Разработка логотипа',
-                    `Настройка рекламной кампании
-        Yandex.Direct`,
-                    `Настройка рекламной кампании
-        Google AdWords`,
+                    '+ Optimal',
+                    'Domain name (registration/setting/setup)',
+                    'SSL-certificate / secure connection ("green plug")',
+                    'Connecting web analytics systems',
+                    'Integration with CRM',
+                    'Setting ads company Google AdWords',
+                    'Development logo',
+                    // 'Весь оптимальный тариф',
+                    // `Доменное имя на 1 год в подарок (покупка/настройка/подключение)`,
+                    // `SLL-сертификат / безопасное подключение ("зеленый замочек")`,
+                    // `Подключение систем веб-аналитики: Яндекс.Метрики и Вебвизора`,
+                    // 'Интеграция с CRM',
+                    // 'Разработка логотипа',
+                    // `Настройка рекламной кампании Yandex.Direct`,
+                    // `Настройка рекламной кампании Google AdWords`,
                 ]}
-                price="От 30 000 RUB/от 21 дня"
+                price="To 500 USD/21 days and more"
                 counter="15"
                 info={'30000rub 21+days'}
                 setShow={props.setShow}

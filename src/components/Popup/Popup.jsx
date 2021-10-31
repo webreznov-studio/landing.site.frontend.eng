@@ -22,9 +22,9 @@ const Popup = (props) => {
     const [phoneInput, setPhoneInput] = useState('');
     const [nameInput, setNameInput] = useState('');
     const [isDisabled, setIsDisabled] = useState(false);
-    const [titleForm, setTitleForm] = useState('Оставьте свои контактные данные');
-    const thanksResponse = 'Спасибо за обращение, я скоро свяжусь с вами!';
-    const errorResponse = 'Произошла ошибка. Повторите отправку.';
+    const [titleForm, setTitleForm] = useState('Please provide this data for guranteed response');
+    const thanksResponse = 'Thanks for request, see you soon!';
+    const errorResponse = 'Sorry... please repeat';
 
     const handlerSendMail = (e) => {
         e.preventDefault();
@@ -66,17 +66,15 @@ const Popup = (props) => {
                                 maskChar=' '
                                 type='text'
                                 className='form_fields_input'
-                                placeholder='Ваше имя'
+                                placeholder='Your name'
                                 required
                             />
-                            <InputMask
+                            <input
                                 onChange={!isDisabled ? (e) => setPhoneInput(e.target.value) : null}
                                 value={phoneInput}
-                                mask='+7\999 999 99 99'
-                                maskChar='_'
                                 type='phone'
                                 className='form_fields_input'
-                                placeholder='Ваш телефон'
+                                placeholder='Another contacts'
                                 required
                             />
                             <input
@@ -84,11 +82,11 @@ const Popup = (props) => {
                                 value={emailInput}
                                 type='email'
                                 className='form_fields_input'
-                                placeholder='Ваш email'
+                                placeholder='Your email'
                                 required
                             />
-                            <input type='submit' disabled={isDisabled} className='form_fields_btn' value='отправить' />
-                            <button onClickCapture={() => props.setShow(false)} className='form_close' title='закрыть окно'>
+                            <input type='submit' disabled={isDisabled} className='form_fields_btn' value='Send' />
+                            <button onClickCapture={() => props.setShow(false)} className='form_close' title='close'>
                                 X
                             </button>
                             {/* <input style={{"display":"none"}} onChange={null} readOnly value={props.info}/> */}

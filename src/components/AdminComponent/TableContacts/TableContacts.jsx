@@ -1,81 +1,68 @@
-import React, { useEffect, useState } from "react";
-import { Grommet, Box, DataTable, Meter, Text, CheckBox } from "grommet";
-import { grommet } from "grommet/themes";
-import axios from "axios";
+import React, {useEffect, useState} from 'react';
+import {Grommet, Box, DataTable, Meter, Text, CheckBox} from 'grommet';
+import {grommet} from 'grommet/themes';
+import axios from 'axios';
 
 const columns = [
-  {
-    property: "createDate",
-    header: <Text>Дата</Text>,
-    primary: true,
-    render: (data) => {
-      const dateObj = new Date(data.createDate);
-      const month = dateObj.getUTCMonth() + 1; //months from 1-12
-      const day = dateObj.getUTCDate();
-      const year = dateObj.getUTCFullYear();
+    {
+        property: 'create_date',
+        header: <Text>Дата</Text>,
+        primary: true,
+        render: (data) => {
+            const dateObj = new Date(+data.create_date);
+            const month = dateObj.getUTCMonth() + 1; //months from 1-12
+            const day = dateObj.getUTCDate();
+            const year = dateObj.getUTCFullYear();
 
-      const newdate = day + "." + month + "." + year;
-      return newdate;
+            return day + '.' + month + '.' + year;
+        },
+        size: 'xsmall',
     },
-    size: "xsmall",
-  },
-  {
-    property: "isRead",
-    header: "Отвечено",
-    render: (data) => <CheckBox checked={data.isRead} />,
-    size: "xsmall",
-  },
-  {
-    property: "name",
-    header: "Имя",
-  },
-  {
-    property: "phone",
-    header: "Телефон",
-  },
-  {
-    property: "email",
-    header: "email",
-  },
-  {
-    property: "description",
-    header: "Заметки",
-  },
+    {
+        property: 'isRead',
+        header: 'Отвечено',
+        render: (data) => <CheckBox checked={data.isRead} />,
+        size: 'xxsmall',
+    },
+    {
+        property: 'client_name',
+        header: 'Имя',
+    },
+    {
+        property: 'another_contacts',
+        header: 'Другой контакт',
+    },
+    {
+        property: 'email',
+        header: 'email',
+    },
+    {
+        property: 'site_type',
+        header: 'Тип заказа',
+    },
 ];
 
 export const TableContacts = () => {
-  const [DATA, setDATA] = useState([]);
+    const [DATA, setDATA] = useState([]);
 
-  /*
-      var month = dateObj.getUTCMonth() + 1; //months from 1-12
-var day = dateObj.getUTCDate();
-var year = dateObj.getUTCFullYear();
+    useEffect(() => {
+        axios.get('http://localhost:8084/api/email/get/all').then((res) => {
+            setDATA(res.data);
+        });
+    }, []);
 
-newdate = year + "/" + month + "/" + day;
-     */
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://webreznov-portfolio.herokuapp.com/api/email/read-user-contact"
-      )
-      .then((res) => {
-        setDATA(res.data);
-      });
-  }, []);
-
-  return (
-    <Box align="center">
-      <DataTable
-        background="light-3"
-        resizeable={false}
-        sortable={false}
-        size="small"
-        columns={columns}
-        data={DATA}
-        border={true}
-        // pad={{"left": "large"}}
-      />
-    </Box>
-  );
+    return (
+        <Box align='center' pad='60px 20px'>
+            <DataTable
+                background='light-3'
+                resizeable={false}
+                sortable={false}
+                size='600'
+                columns={columns}
+                data={DATA}
+                border={true}
+                // pad={{"left": "large"}}
+            />
+        </Box>
+    );
 };
