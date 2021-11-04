@@ -9,7 +9,6 @@ import telegram from '../../images/social-icons/telegram2.png';
 import whatsapp from '../../images/social-icons/whatsapp2.png';
 import vk from '../../images/social-icons/vk2.png';
 import inst from '../../images/social-icons/inst2.png';
-// import {defaultProps} from 'grommet';
 
 export const FormRequest = () => {
     const [submitStatus, setSubmitStatus] = useState(null);
@@ -37,14 +36,7 @@ export const FormRequest = () => {
 
     const onSubmit = (dataObj) => {
         const data = qs.stringify(dataObj);
-        console.log(data);
 
-        // axios({
-        //     method: 'POST',
-        //     headers: {'content-type': 'application/x-www-form-urlencoded'},
-        //     data: qs.stringify(dataObj),
-        //     url: 'http://localhost:8084/api/email/add',
-        // });
         axios
             .post('https://webreznov-landing-site-request.herokuapp.com/api/email/add', data, {
                 headers: {'content-type': 'application/x-www-form-urlencoded'},
@@ -52,7 +44,6 @@ export const FormRequest = () => {
             .then(() => {
                 setSubmitStatus('Success! We will be contact soon :)');
                 reset(defaultValues);
-                // setTimeout(() => setSubmitStatus(null), 2500);
             })
             .catch((err) => setSubmitStatus(`Error code ${err.response.status} :(`));
     };
