@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Webreznov - web developer`,
-    description: `Разработка сайтов, email писем и веб приложений. Создаем удобные и эффективные сайты. Адаптируем верстку под разные устройства и браузеры. Создание электронных писем с фирменным стилем.`,
+    description: `Create convenient and effective sites, email layout and web applications. Use react, nodejs, postgresql`,
     author: `@webreznov`,
-    siteUrl: `https://webreznov.ru/`,
+    siteUrl: `https://webreznov.site/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
