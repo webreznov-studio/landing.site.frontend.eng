@@ -1,55 +1,70 @@
-import React, {useEffect, useState} from 'react';
-import {Grommet, Box, DataTable, Meter, Text, CheckBox} from 'grommet';
-import {grommet} from 'grommet/themes';
+import React from 'react';
+import {Box, DataTable, Text, Button} from 'grommet';
 import axios from 'axios';
-
-const columns = [
-    {
-        property: 'create_date',
-        header: <Text>Дата</Text>,
-        primary: true,
-        render: (data) => {
-            const dateObj = new Date(+data.create_date);
-            const month = dateObj.getUTCMonth() + 1; //months from 1-12
-            const day = dateObj.getUTCDate();
-            const year = dateObj.getUTCFullYear();
-
-            return day + '.' + month + '.' + year;
-        },
-        size: 'xsmall',
-    },
-    {
-        property: 'isRead',
-        header: 'Отвечено',
-        render: (data) => <CheckBox checked={data.isRead} />,
-        size: 'xxsmall',
-    },
-    {
-        property: 'client_name',
-        header: 'Имя',
-    },
-    {
-        property: 'another_contacts',
-        header: 'Другой контакт',
-    },
-    {
-        property: 'email',
-        header: 'email',
-    },
-    {
-        property: 'site_type',
-        header: 'Тип заказа',
-    },
-];
+import {useSetDocumentTitle} from '../../../utils/helpers';
+import {checkAsRead, deleteRequest} from './api';
+import {useQuery, useQueryClient} from 'react-query';
 
 export const TableContacts = () => {
-    const [DATA, setDATA] = useState([]);
+    useSetDocumentTitle('Requests development');
+    const queryClient = useQueryClient();
 
-    useEffect(() => {
-        axios.get('http://localhost:8084/api/email/get/all').then((res) => {
-            setDATA(res.data);
-        });
-    }, []);
+    const {data: DATA} = useQuery('adm_getAllContact', () =>
+        axios.get(`http://localhost:8084/api/email/get/all`).then((res) => {
+            return res.data;
+        }),
+    );
+
+    const columns = [
+        {
+            property: 'create_date',
+            header: <Text>Дата</Text>,
+            primary: true,
+            render: (data) => {
+                const dateObj = new Date(+data.create_date);
+                const month = dateObj.getUTCMonth() + 1; //months from 1-12
+                const day = dateObj.getUTCDate();
+                const year = dateObj.getUTCFullYear();
+
+                return day + '.' + month + '.' + year;
+            },
+            size: 'xsmall',
+        },
+        {
+            property: 'client_name',
+            header: 'Имя',
+            render: (d) => (
+                <a href={`/adm/modal?id=${d.id}`} target='_blank' rel='noreferrer'>
+                    {d.client_name}
+                </a>
+            ),
+            size: 'small',
+        },
+        {
+            property: 'site_type',
+            header: 'Тип заказа',
+            size: 'small',
+        },
+        {
+            property: 'isRead',
+            header: 'Действия',
+            render: (data) => {
+                return (
+                    <Box direction='row' justify='around' align='center' pad='small'>
+                        <Button label='Прочитано' onClick={() => checkAsRead(data.id)} size='small' style={{display: 'inline-block'}} />
+                        <Button
+                            primary
+                            label='Удалить'
+                            onClick={() => deleteRequest(data.id, queryClient)}
+                            size='small'
+                            style={{display: 'inline-block'}}
+                        />
+                    </Box>
+                );
+            },
+            size: 'medium',
+        },
+    ];
 
     return (
         <Box align='center' pad='60px 20px'>
@@ -61,7 +76,6 @@ export const TableContacts = () => {
                 columns={columns}
                 data={DATA}
                 border={true}
-                // pad={{"left": "large"}}
             />
         </Box>
     );

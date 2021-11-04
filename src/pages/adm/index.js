@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import {useQuery, useQueryClient, QueryClient, QueryClientProvider} from 'react-query';
-import {TableContacts} from '../components/AdminComponent/TableContacts';
+import React, {useState} from 'react';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import {TableContacts} from '../../components/AdminComponent/TableContacts';
 import {Tab, Tabs} from 'grommet';
-import {MoviesTab} from '../components/AdminComponent/MoviesTab/MoviesTab';
-import {getMoviesApi} from '../utils/api';
+import {MoviesTab} from '../../components/AdminComponent/MoviesTab/MoviesTab';
+import {useSetDocumentTitle} from '../../utils/helpers';
 
 const queryClient = new QueryClient();
 
@@ -16,9 +16,12 @@ export default function AppAdm() {
 }
 
 const IndexAdmin = () => {
+    useSetDocumentTitle('Admin tools');
+
     const [index, setIndex] = useState();
 
-    const onActive = nextIndex => setIndex(nextIndex);
+    const onActive = (nextIndex) => setIndex(nextIndex);
+
     return (
         <div>
             <h1>Admin page</h1>
