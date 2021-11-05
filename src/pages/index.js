@@ -20,9 +20,7 @@ const IndexPage = () => {
     const [infoText, setInfoText] = useState('main screen request');
     return (
         <>
-            {/* <SEO title='Студия веб-разработок - webreznov' /> */}
-            
-            <SEO title='Web development studio - webreznov' />
+            <SEO title='Студия веб-разработок - webreznov' />
 
             <Popup show={showPopup} setShow={toShowPopup} info={infoText} />
 

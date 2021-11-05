@@ -7,7 +7,7 @@ export const LogoMenu = () => {
     const [isShow, setIsShow] = useState(false);
 
     return (
-        <div onClick={() => setIsShow(false)}>
+        <div onClick={() => setIsShow(!isShow)}>
             <Link to="#">
                 <img src={logo} alt="" />
             </Link>

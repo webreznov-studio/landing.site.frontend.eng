@@ -12,26 +12,19 @@ export const Offer = (props) => (
             <div className="container">
                 <div className="offer_block">
                     <h3 className="offer_block_title">
-                        {/* Создаем <span>удобные</span> и <span>эффективные</span> сайты */}
-                        Create <span>convenient</span> and <span>effective</span> sites
+                        Создаем <span>удобные</span> и <span>эффективные</span> сайты
                     </h3>
-                    {/* <p className="offer_block_text">выгодно выделяем вас среди конкурентов</p> */}
-                    <p className="offer_block_text">We give you advantage among competitors</p>
+                    <p className="offer_block_text">выгодно выделяем вас среди конкурентов</p>
 
                     <div onClick={() => props.setShow(true)} className="offer_btn">
-                        {/* оставить заявку */}
-                        request
+                        оставить заявку
                     </div>
 
                     <div className="offer_special">
-                        {/* <h3 className="offer_special-title">Специальное предложение!</h3> */}
-                        <h3 className="offer_special-title">Special offer!</h3>
-                        {/* <p className="offer_special-text">
+                        <h3 className="offer_special-title">Специальное предложение!</h3>
+                        <p className="offer_special-text">
                             Оставте завку на разработку лэндинга и получите возможность составить ТЗ
                             бесплатно!
-                        </p> */}
-                        <p className="offer_special-text">
-                            Create request to develop landing page and get technical spec free!
                         </p>
                     </div>
                 </div>
