@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import React from 'react';
 import {LogoMenu} from "./components/LogoMenu/LogoMenu";
 import './header.css';
@@ -6,7 +6,7 @@ import telegram from '../../images/social-icons/telegram.png';
 import whatsapp from '../../images/social-icons/whatsapp.png';
 import vk from '../../images/social-icons/vk.png';
 import inst from '../../images/social-icons/inst.png';
-import logo from '../../images/logo.png';
+// import logo from '../../images/logo.png';
 import links from '../constLinks';
 
 const Header = () => (

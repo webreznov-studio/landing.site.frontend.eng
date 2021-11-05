@@ -4,12 +4,12 @@ import { Carousel } from 'react-responsive-carousel';
 import { Clock } from '../Clock';
 import { SliderStyled } from './styles';
 
-const sliderStyle = {
-    position: 'absolute',
-    top: '57px',
-    left: '140px',
-    right: '143px',
-};
+// const sliderStyle = {
+//     position: 'absolute',
+//     top: '57px',
+//     left: '140px',
+//     right: '143px',
+// };
 
 const carouselConfig = {
     autoPlay: true,

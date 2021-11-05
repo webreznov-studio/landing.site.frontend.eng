@@ -9,10 +9,6 @@ import telegram from '../../images/social-icons/telegram2.png';
 import whatsapp from '../../images/social-icons/whatsapp2.png';
 import vk from '../../images/social-icons/vk2.png';
 import inst from '../../images/social-icons/inst2.png';
-<<<<<<< HEAD
-=======
-import {defaultProps} from 'grommet';
->>>>>>> parent of c96a50a... udpate for eng
 
 export const FormRequest = () => {
     const [submitStatus, setSubmitStatus] = useState(null);

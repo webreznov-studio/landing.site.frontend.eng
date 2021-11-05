@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import {useQuery, useQueryClient, QueryClient, QueryClientProvider} from 'react-query';
+import React, {useState} from 'react';
+import {useQuery, QueryClient, QueryClientProvider} from 'react-query';
 import {Link} from 'gatsby';
-import {Button, Card, CardBody, CardFooter, CardHeader, Grid, Main, RangeInput, RangeSelector, Spinner} from 'grommet';
+import {Button, Card, CardBody, CardFooter, CardHeader, Grid, Main, RangeInput, Spinner} from 'grommet';
 import {Favorite, ShareOption} from 'grommet-icons';
 import {getMoviesApi} from '../utils/api';
 
@@ -88,7 +88,7 @@ const TemplateCard = ({item}) => {
                 </CardBody>
                 <CardFooter pad={{horizontal: 'small'}} background='light-2'>
                     <Button icon={<Favorite color='red' />} hoverIndicator />
-                    <a href={`https://yandex.ru/search/?text=%23${item.tag}&lr=11`} target={'_blank'}>
+                    <a href={`https://yandex.ru/search/?text=%23${item.tag}&lr=11`} target={'_blank'} rel="noreferrer">
                         #{item.tag}
                     </a>
                     <Button icon={<ShareOption color='plain' />} hoverIndicator />

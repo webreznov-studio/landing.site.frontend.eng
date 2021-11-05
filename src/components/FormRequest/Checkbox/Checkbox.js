@@ -3,7 +3,7 @@ import {BoxStyled, LabelStyled, WrapperStyled} from './styles';
 
 export const Checkbox = React.forwardRef((props) => {
     const length = 126.36953735351562; // hard-coded length dependent on the path used
-    const {selected, onClick, label, effect = 'checkmark'} = props;
+    const {selected, onClick, label} = props;
     return (
         <div style={{padding: '14px 0'}}>
             <WrapperStyled className='wrapper' onClick={onClick}>
