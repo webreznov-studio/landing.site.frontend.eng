@@ -36,7 +36,6 @@ export const FormRequest = () => {
 
     const onSubmit = (dataObj) => {
         const data = qs.stringify(dataObj);
-
         axios
             .post('https://webreznov-landing-site-request.herokuapp.com/api/email/add', data, {
                 headers: {'content-type': 'application/x-www-form-urlencoded'},
@@ -58,91 +57,91 @@ export const FormRequest = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
 
                     <ItemWrapper>
-                        {errors.siteType && <ErrorTextStyled>Это поле обязательное</ErrorTextStyled>}
-                        <span>Какой сайт вы хотите?</span>
+                        {errors.siteType && <ErrorTextStyled>Please provide this data for guranteed response.</ErrorTextStyled>}
+                        <span>What do you want site type?</span>
                         <Checkbox
-                            onClick={() => setValue('siteType', 'Корпоративный сайт')}
-                            selected={watch('siteType') === 'Корпоративный сайт'}
-                            label='Корпоративный сайт'
+                            onClick={() => setValue('siteType', 'Corporate site')}
+                            selected={watch('siteType') === 'Corporate site'}
+                            label='Corporate site'
                         />
                         <Checkbox
-                            onClick={() => setValue('siteType', 'Интернет-магазин')}
-                            selected={watch('siteType') === 'Интернет-магазин'}
-                            label='Интернет-магазин'
+                            onClick={() => setValue('siteType', 'Web shop')}
+                            selected={watch('siteType') === 'Web shop'}
+                            label='Web shop'
                         />
                         <Checkbox
-                            onClick={() => setValue('siteType', 'Сайт-визитку')}
-                            selected={watch('siteType') === 'Сайт-визитку'}
-                            label='Сайт-визитку'
+                            onClick={() => setValue('siteType', 'Promo-site')}
+                            selected={watch('siteType') === 'Promo-site'}
+                            label='Promo-site'
                         />
                         <Checkbox
-                            onClick={() => setValue('siteType', 'Корпоративный портал')}
-                            selected={watch('siteType') === 'Корпоративный портал'}
-                            label='Корпоративный портал'
+                            onClick={() => setValue('siteType', 'Corporate portal')}
+                            selected={watch('siteType') === 'Corporate portal'}
+                            label='Corporate portal'
                         />
                         <Checkbox
-                            onClick={() => setValue('siteType', 'Веб-приложение')}
-                            selected={watch('siteType') === 'Веб-приложение'}
-                            label='Веб-приложение'
+                            onClick={() => setValue('siteType', 'Web-application')}
+                            selected={watch('siteType') === 'Web-application'}
+                            label='Web-application'
                         />
-                        <Checkbox onClick={() => handlerCheckbox()} selected={watch('showSiteType')} label='Другое...' />
-                        {watch('showSiteType') && <InputStyled placeholder='Другое...' {...register('siteType', {required: true})} />}
+                        <Checkbox onClick={() => handlerCheckbox()} selected={watch('showSiteType')} label='Another...' />
+                        {watch('showSiteType') && <InputStyled placeholder='Another...' {...register('siteType', {required: true})} />}
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {watch('designSite') && <LabelFieldStyled>Насколько сложным должен быть дизайн?</LabelFieldStyled>}
-                        <InputStyled placeholder='Насколько сложным должен быть дизайн?' {...register('designSite')} />
+                        {watch('designSite') && <LabelFieldStyled>Do you wnat complex design?</LabelFieldStyled>}
+                        <InputStyled placeholder='Do you wnat complex design?' {...register('designSite')} />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {watch('auditorsSite') && <LabelFieldStyled>Сколько аудиторий у сайта?</LabelFieldStyled>}
-                        <InputStyled placeholder='Сколько аудиторий у сайта?' {...register('auditorsSite')} />
+                        {watch('auditorsSite') && <LabelFieldStyled>How many audiences does the site have?</LabelFieldStyled>}
+                        <InputStyled placeholder='How many audiences does the site have?' {...register('auditorsSite')} />
                     </ItemWrapper>
 
                     <ItemWrapper>
                         {watch('exampleSitesUrls') && (
-                            <LabelFieldStyled>Укажите 3 примера сайтов, где вам нравится дизайн и укажите почему</LabelFieldStyled>
+                            <LabelFieldStyled>Please, provide 3 example sites</LabelFieldStyled>
                         )}
                         <InputStyled
-                            placeholder='Укажите 3 примера сайтов, где вам нравится дизайн и укажите почему'
+                            placeholder='Please, provide 3 example sites'
                             {...register('exampleSitesUrls')}
                         />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {watch('siteExsistUrl') && <LabelFieldStyled>Если у вас уже есть сайт, пожалуйста, укажите на него ссылку</LabelFieldStyled>}
-                        <InputStyled placeholder='Если у вас уже есть сайт, пожалуйста, укажите на него ссылку' {...register('siteExsistUrl')} />
+                        {watch('siteExsistUrl') && <LabelFieldStyled>If you have site, provide link please</LabelFieldStyled>}
+                        <InputStyled placeholder='If you have site, provide link please' {...register('siteExsistUrl')} />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {watch('functionOfSite') && <LabelFieldStyled>Какие функции должен выполнять сайт?</LabelFieldStyled>}
-                        <InputStyled placeholder='Какие функции должен выполнять сайт?' {...register('functionOfSite')} />
+                        {watch('functionOfSite') && <LabelFieldStyled>What functions should the site perform?</LabelFieldStyled>}
+                        <InputStyled placeholder='What functions should the site perform?' {...register('functionOfSite')} />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {watch('regionAudit') && <LabelFieldStyled>Какой регион у аудитории сайта?(местоположение)</LabelFieldStyled>}
-                        <InputStyled placeholder='Какой регион у аудитории сайта?(местоположение)' {...register('regionAudit')} />
+                        {watch('regionAudit') && <LabelFieldStyled>What is the region of the site’s audience?(location)</LabelFieldStyled>}
+                        <InputStyled placeholder='What is the region of the site’s audience?(местоположение)' {...register('regionAudit')} />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {errors.clientName && <ErrorTextStyled>Это поле обязательное</ErrorTextStyled>}
-                        {watch('clientName') && <LabelFieldStyled>Контактное лицо</LabelFieldStyled>}
-                        <InputStyled placeholder='Контактное лицо' {...register('clientName', {required: true})} />
+                        {errors.clientName && <ErrorTextStyled>Please provide this data for guranteed response.</ErrorTextStyled>}
+                        {watch('clientName') && <LabelFieldStyled>Your name</LabelFieldStyled>}
+                        <InputStyled placeholder='Your name' {...register('clientName', {required: true})} />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {errors.email && <ErrorTextStyled>Это поле обязательное</ErrorTextStyled>}
+                        {errors.email && <ErrorTextStyled>Please provide this data for guranteed response.</ErrorTextStyled>}
                         {watch('email') && <LabelFieldStyled>Email</LabelFieldStyled>}
                         <InputStyled placeholder='Email' {...register('email', {required: true})} />
                     </ItemWrapper>
 
                     <ItemWrapper>
-                        {watch('contacts') && <LabelFieldStyled>Дополнительные контакты</LabelFieldStyled>}
-                        <InputStyled placeholder='Дополнительные контакты' {...register('contacts')} />
+                        {watch('contacts') && <LabelFieldStyled>Another contacts</LabelFieldStyled>}
+                        <InputStyled placeholder='Another contacts' {...register('contacts')} />
                     </ItemWrapper>
 
                     <ButtonWrapper>
-                        <ButtonStyled type='submit' value='Отправить' />
+                        <ButtonStyled type='submit' value='Send request' />
                         <span className='status'>{submitStatus}</span>
                     </ButtonWrapper>
 
