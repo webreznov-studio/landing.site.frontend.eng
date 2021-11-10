@@ -35,33 +35,33 @@ module.exports = {
     //     excludes: ['/index-admin']
     //   }
     // },
-    {
-      resolve: `gatsby-plugin-yandex-metrika`,
-      options: {
-        trackingId: 80587351,
-        webvisor: true,
-        trackHash: true,
-        afterBody: true,
-        defer: false,
-      },
-    },
     // {
-    //   resolve: `gatsby-plugin-google-gtag`,
+    //   resolve: `gatsby-plugin-yandex-metrika`,
     //   options: {
-    //     trackingIds: [
-    //       "G-6DB8G5F5T8", // Google Analytics / GA
-    //       "AW-529243088", // Google Ads / Adwords / AW
-    //     ],
-    //     gtagConfig: {
-    //       optimize_id: "OPT_CONTAINER_ID",
-    //       anonymize_ip: true,
-    //       cookie_expires: 0,
-    //     },
-    //     pluginConfig: {
-    //       head: true,
-    //       exclude: ["/index-admin"],
-    //     },
+    //     trackingId: 80587351,
+    //     webvisor: true,
+    //     trackHash: true,
+    //     afterBody: true,
+    //     defer: false,
     //   },
     // },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-KPK1104VVL", // Google Analytics / GA
+          //"AW-529243088", // Google Ads / Adwords / AW
+        ],
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+          exclude: ["/index-admin"],
+        },
+      },
+    },
   ],
 }
