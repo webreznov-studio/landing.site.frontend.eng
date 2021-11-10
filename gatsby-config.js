@@ -29,12 +29,12 @@ module.exports = {
         icon: `src/images/og.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-sitemap`,
-    //   options: {
-    //     excludes: ['/index-admin']
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: ['/index-admin']
+      }
+    },
     // {
     //   resolve: `gatsby-plugin-yandex-metrika`,
     //   options: {
