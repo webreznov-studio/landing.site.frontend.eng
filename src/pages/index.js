@@ -18,7 +18,10 @@ const IndexPage = () => {
         <>
             {/* <SEO title='Студия веб-разработок - webreznov' /> */}
             <SEO title='Web development studio - webreznov' />
-
+            <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCV7HVV" height="0" width="0" style={{display:"none", visibility:"hidden"}}></iframe>
+            </noscript>
+            
             <Popup show={showPopup} setShow={toShowPopup} info={infoText} />
 
             <Header />
