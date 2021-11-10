@@ -49,7 +49,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-KPK1104VVL", // Google Analytics / GA
+          "G-89D400E95C", // Google Analytics / GA
           //"AW-529243088", // Google Ads / Adwords / AW
         ],
         gtagConfig: {
